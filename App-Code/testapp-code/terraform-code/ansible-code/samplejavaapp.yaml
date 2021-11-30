@@ -5,4 +5,8 @@
   become: yes
   roles:
   - firewall
+<<<<<<< HEAD
   - webappjboss
+=======
+  - maven-web-app
+>>>>>>> 5cd8dfd9d38d24a9a20d8e25065c324c42e20cfb
