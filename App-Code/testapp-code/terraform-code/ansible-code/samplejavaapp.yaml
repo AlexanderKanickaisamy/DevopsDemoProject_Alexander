@@ -1,8 +1,8 @@
 --- 
 
-- hosts: all
+- hosts: web
   name: Sample Java App Deployment
   become: yes
   roles:
   - firewall
-  - maven-web-application
+  - webappjboss
