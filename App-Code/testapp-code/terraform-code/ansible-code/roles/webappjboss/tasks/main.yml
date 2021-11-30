@@ -1,6 +1,9 @@
 ---
-- name: Install Default JDK 1.8
-  apt: name=default-jdk state=present 
+- name: Install Java 1.8 and some basic dependencies
+  yum: name={{item}} state=present
+  with_items:
+   - unzip
+   - java-1.8.0-openjdk
 
 - name: Download JBoss from jboss.org
   get_url: url=http://download.jboss.org/wildfly/10.0.0.Final/wildfly-10.0.0.Final.zip dest=/opt/wildfly-10.0.0.Final.zip
@@ -26,7 +29,7 @@
   file: path=/usr/share/jboss-as/ owner=jboss group=jboss state=directory recurse=yes
 
 - name: Copy the init script
-  copy: src=wildfly-install.sh dest=/etc/init.d/jboss mode=0755
+  copy: src=wildfly-init-redhat.sh dest=/etc/init.d/jboss mode=0755
 
 - name: Enable JBoss to be started at boot
   service: name=jboss enabled=yes state=started 
