@@ -3,7 +3,7 @@
 version: '2' 
 
 services: 
-  petclinic:
+  ticketmonster:
     build: . 
     ports:
       - '30099:8080'

@@ -1,6 +1,6 @@
-# Run Time Tomcat Env Image.
-FROM tomcat:8.0
+# Run Time Jboss Env Image.
+FROM jboss/base:latest
 
 MAINTAINER Alexander Kanickaisamy <antonyalexander65@gmail.com>
 
-COPY target/petclinic.war   /usr/local/tomcat/webapps/
+COPY target/ticketmonster.war   /usr/local/jboss/webapps/
