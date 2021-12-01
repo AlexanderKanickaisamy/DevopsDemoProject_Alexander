@@ -12,7 +12,7 @@ resource "aws_instance" "backend" {
 
   connection { 
     type = "ssh"
-    user = "Red Hat"
+    user = "ec2-user"
     private_key = file(var.pvt_key_name)
     host  = self.public_ip 
   }
