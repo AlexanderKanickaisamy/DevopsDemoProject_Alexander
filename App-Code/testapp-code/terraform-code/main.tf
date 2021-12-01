@@ -22,7 +22,7 @@ resource "aws_instance" "backend" {
     inline = [
       "sudo sleep 30",
       "sudo yum update -y",
-      "sudo yum install python36 sshpass -y"
+      "sudo yum install python2 sshpass -y"
     ]
 
   }
