@@ -7,11 +7,11 @@ node {
  def buildInfo = Artifactory.newBuildInfo()
 
  // Project Path
- def project_path = "03-App-Code/petclinic-code"
+ def project_path = "App-Code/testapp-code"
 
 
  stage('Git CheckOut') {
-  git branch: 'main', url: 'https://github.com/AlexanderKanickaisamy/DevopsProject_Alexander.git' 
+  git branch: 'main', url: 'https://github.com/AlexanderKanickaisamy/DevopsDemoProject_Alexander.git' 
  }
  
  dir(project_path) {
@@ -52,7 +52,7 @@ stage('Publish Build Info'){
 }
 
  stage('Archive Artifact') {
-  archiveArtifacts artifacts: 'target/petclinic.war', followSymlinks: false
+  archiveArtifacts artifacts: 'target/maven-web-application.war', followSymlinks: false
  }
 
 
@@ -61,12 +61,12 @@ stage('Publish Build Info'){
  }
 
  stage('Getting Ready For Ansible Deployment'){
-     sh "echo \'<h1>JENKINS TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>\' > terraform-code/ansible-code/roles/petclinic/files/jenkins.html"
+     sh "echo \'<h1>JENKINS TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>\' > terraform-code/ansible-code/roles/webappjboss/files/jenkins.html"
  }
 
  
  stage('Getting Ready For Terraform Deployment'){
-     sh "cp -rf target/petclinic.war terraform-code/ansible-code/roles/petclinic/files/"
+     sh "cp -rf target/petclinic.war terraform-code/ansible-code/roles/webappjboss/files/"
  }
 
  stage('Terraform Deployment'){
