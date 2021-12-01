@@ -21,8 +21,8 @@ resource "aws_instance" "backend" {
   provisioner "remote-exec" {
     inline = [
       "sudo sleep 30",
-      "sudo apt-get update -y",
-      "sudo apt-get install python sshpass -y"
+      "sudo yum update -y",
+      "sudo yum install python sshpass -y"
     ]
 
   }
