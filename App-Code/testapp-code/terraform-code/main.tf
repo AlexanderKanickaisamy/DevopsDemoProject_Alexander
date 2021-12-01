@@ -22,7 +22,7 @@ resource "aws_instance" "backend" {
     inline = [
       "sudo sleep 30",
       "sudo yum update -y",
-      "sudo yum install python3 sshpass -y"
+      "sudo yum install python2 sshpass -y"
     ]
 
   }
@@ -35,7 +35,7 @@ resource "null_resource" "ansible-main" {
        echo "[jenkins-ci]"|tee -a jenkins-ci.ini;
        export ANSIBLE_HOST_KEY_CHECKING=False;
        echo "${aws_instance.backend.public_ip}"|tee -a jenkins-ci.ini;
-       ansible-playbook --key-file=${var.pvt_key_name} -i jenkins-ci.ini -e 'ansible_python_interpreter=/usr/bin/python3' -u ec2-user ./ansible-code/samplejavaapp.yaml -v 
+       ansible-playbook --key-file=${var.pvt_key_name} -i jenkins-ci.ini -e 'ansible_python_interpreter="/usr/bin/python3"' -u ec2-user ./ansible-code/samplejavaapp.yaml -v 
      EOT
   }
   depends_on = [aws_instance.backend]
