@@ -1,6 +1,4 @@
 ---
-- name: Check if firewalld package is installed
-  command: yum list installed firewalld
 - name: Disable the firewalld service
   service:
     name: firewalld
