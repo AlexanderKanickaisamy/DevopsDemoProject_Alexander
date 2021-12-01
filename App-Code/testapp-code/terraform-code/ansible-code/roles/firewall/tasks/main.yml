@@ -1,5 +1,5 @@
 ---
-- name: Check if firewalld package is installed
+- name: Check if firewalld package is installed (on RHEL).
   command: yum list installed firewalld
   args:
     warn: false
