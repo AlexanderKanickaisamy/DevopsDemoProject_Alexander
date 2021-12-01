@@ -13,7 +13,7 @@ variable "sg_id" {
 
 
 variable "ami_id" {
-  default = "ami-05803413c51f242b7"
+  default = "ami-0ba62214afa52bec7"
 }
 
 
