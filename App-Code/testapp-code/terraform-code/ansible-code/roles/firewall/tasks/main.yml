@@ -1,7 +1,5 @@
 ---
-# tasks file for firewall
-
-- name: Check if firewalld package is installed (on RHEL).
+- name: Check if firewalld package is installed
   command: yum list installed firewalld
   args:
     warn: false
