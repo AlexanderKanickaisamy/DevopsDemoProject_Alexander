@@ -66,7 +66,7 @@ stage('Publish Build Info'){
 
  
  stage('Getting Ready For Terraform Deployment'){
-     sh "cp -rf target/petclinic.war terraform-code/ansible-code/roles/webappjboss/files/"
+     sh "cp -rf target/maven-web-application.war terraform-code/ansible-code/roles/webappjboss/files/"
  }
 
  stage('Terraform Deployment'){
