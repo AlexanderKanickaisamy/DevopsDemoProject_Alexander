@@ -1,12 +1,9 @@
 ---
-- name: Check if firewalld package is installed (on RHEL).
+- name: Check if firewalld package is installed
   command: yum list installed firewalld
-  args:
-    warn: false
-  register: firewalld_installed
-  ignore_errors: true
-  changed_when: false
-  when:
-    - ansible_os_family == "RedHat"
-    - firewall_disable_firewalld
-  check_mode: false
+- name: Disable the firewalld service
+  service:
+    name: firewalld
+    state: stopped
+    enabled: false
+  
