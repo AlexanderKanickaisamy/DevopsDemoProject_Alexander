@@ -1,6 +1,7 @@
 ---
 - name: Install Java 1.8 and some basic dependencies
-  command: sudo yum install java-1.8.0-openjdk
+  yum:
+   name: java-1.8.0-openjdk
   
 - name: Download JBoss from jboss.org
   get_url: url=http://download.jboss.org/wildfly/10.0.0.Final/wildfly-10.0.0.Final.zip dest=/opt/wildfly-10.0.0.Final.zip
