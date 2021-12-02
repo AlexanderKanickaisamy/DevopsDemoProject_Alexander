@@ -2,7 +2,7 @@
 
 - name: Download JBoss from jboss.org
   get_url: 
-   url: http://download.jboss.org/wildfly/10.0.0.Final/wildfly-10.0.0.Final.zip 
+   url: http://download.jboss.org/wildfly/10.0.0.Final/wildfly-10.0.0.Final.zip force=yes
    dest: /opt/wildfly-10.0.0.Final.zip
    timeout: 200
    checksum: md5:7bd83f071c6ba8e1620f2cf92b9357a44c3fa952
