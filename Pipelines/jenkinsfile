@@ -38,7 +38,7 @@ node {
 			"files": [
 			{
 			"pattern": "**/*.war",
-			"target": "petclinic-repo"
+			"target": "samplejavaapp-repo"
 			}
 		]
 
