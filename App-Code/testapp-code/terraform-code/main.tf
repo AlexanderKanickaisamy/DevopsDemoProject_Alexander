@@ -22,7 +22,7 @@ resource "aws_instance" "backend" {
     inline = [
       "sudo sleep 30",
       "sudo yum update -y",
-      "sudo yum install python2 firewalld sshpass -y"
+      "sudo yum install python2 java-1.8.0-openjdk firewalld sshpass -y"
     ]
 
   }
