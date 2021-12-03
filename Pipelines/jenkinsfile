@@ -73,8 +73,7 @@ stage('Publish Build Info'){
 
  stage('Terraform Deployment'){
      sh "cd terraform-code; terraform init ; terraform apply --auto-approve"
- }
-} catch (e) {
+ } catch (e) {
     // If there was an exception thrown, the build failed
     currentBuild.result = "FAILED"
     throw e
