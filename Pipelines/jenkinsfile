@@ -79,7 +79,7 @@ stage('Publish Build Info'){
   catchError {
         sh 'exit 1'
     } 
-    step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'me@me.com', sendToIndividuals: true])
+    step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'alexps44login@gmail.com', sendToIndividuals: true])
 
 
 }
