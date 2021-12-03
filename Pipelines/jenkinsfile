@@ -71,22 +71,20 @@ stage('Publish Build Info'){
 
  stage('Terraform Deployment'){
      sh "cd terraform-code; terraform init ; terraform apply --auto-approve"
-     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh "exit 1"
  }
 
- stage('Send email') {
-     def mailRecipients = "alexps44login@gmail.com"
-     def jobName = currentBuild.fullDisplayName
+     post {  
+         always {  
+	 def mailRecipients = "alexps44login@gmail.com"
+         def jobName = currentBuild.fullDisplayName
 
-     emailext body: '''${SCRIPT, template="groovy-html.template"}''',
+         emailext body: '''${SCRIPT, template="groovy-html.template"}''',
          mimeType: 'text/html',
          subject: "[Jenkins] ${jobName}",
          to: "${mailRecipients}",
          replyTo: "${mailRecipients}",
          recipientProviders: [[$class: 'CulpritsRecipientProvider']]
-	 sh 'exit 0'
-  }
+         } 
  }
 }
 }
