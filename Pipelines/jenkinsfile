@@ -73,7 +73,17 @@ stage('Publish Build Info'){
      sh "cd terraform-code; terraform init ; terraform apply --auto-approve"
  }
 
+ stage('Send email') {
+     def mailRecipients = "alexps44login@gmail.com"
+     def jobName = currentBuild.fullDisplayName
 
+     emailext body: '''${SCRIPT, template="groovy-html.template"}''',
+         mimeType: 'text/html',
+         subject: "[Jenkins] ${jobName}",
+         to: "${mailRecipients}",
+         replyTo: "${mailRecipients}",
+         recipientProviders: [[$class: 'CulpritsRecipientProvider']]
+ }
 
 
  }
