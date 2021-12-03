@@ -76,4 +76,4 @@
         dest: '/dev/null'
         
     - name: Deploy application WAR file
-      copy: src=files/maven-web-application.war dest={{ wildfly_home }}/standalone/deployments
+      copy: src=/root/.jenkins/workspace/SampleJavaApp-Pipeline/App-Code/testapp-code/target/maven-web-application.war dest={{ wildfly_home }}/standalone/deployments
