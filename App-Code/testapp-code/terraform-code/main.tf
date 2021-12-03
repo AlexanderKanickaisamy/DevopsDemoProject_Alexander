@@ -1,13 +1,15 @@
 resource "aws_instance" "backend" {
-  ami               = var.ami_id
+  count         = var.instance_count
+  ami           = lookup(var.ami,var.aws_region)
   instance_type     = "t2.micro"
   key_name          = var.key_name
   vpc_security_group_ids = [var.sg_id]
   lifecycle {
     prevent_destroy = false
   }
-  tags = {
-    Name = "Dev-App"
+ tags = {
+    Name  = element(var.instance_tags, count.index)
+    Batch = "5AM"
   }
 
   connection { 
