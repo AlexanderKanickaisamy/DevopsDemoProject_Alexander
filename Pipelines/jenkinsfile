@@ -86,5 +86,6 @@ stage('Publish Build Info'){
          replyTo: "${mailRecipients}",
          recipientProviders: [[$class: 'CulpritsRecipientProvider']]
 	 sh 'exit 0'
+  }
  }
 }
