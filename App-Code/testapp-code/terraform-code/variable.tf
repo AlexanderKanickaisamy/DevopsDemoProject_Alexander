@@ -13,9 +13,22 @@ variable "sg_id" {
 
 
 variable "ami_id" {
-  default = "ami-0ba62214afa52bec7"
+  type = map
+
+  default = {
+    "us-east-1" = "ami-0ba62214afa52bec7"
+    "us-west-1" = "ami-0ba62214afa52bec7"
+  }
 }
 
+variable "instance_count" {
+  default = "2"
+}
+
+variable "instance_tags" {
+  type = list
+  default = ["Terraform-1", "Terraform-2"]
+}
 
 variable "region" {
   default = "us-east-2"
