@@ -1,0 +1,6 @@
+---
+https_uri: https://download.jboss.org/wildfly/24.0.1.Final/wildfly-24.0.1.Final.zip
+wildfly_user: wildfly
+server_url: enteryouriphere
+wildfly_version: wildfly-24.0.1.Final
+# change the https_url for latest version of wildfly, currently it is 24.X.X version. Add your server url and the wildfly_version file 
