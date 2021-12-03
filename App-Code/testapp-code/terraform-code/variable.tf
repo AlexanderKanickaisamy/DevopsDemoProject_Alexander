@@ -30,7 +30,7 @@ variable "instance_tags" {
   default = ["Terraform-1", "Terraform-2"]
 }
 
-variable "region" {
+variable "aws_region" {
   default = "us-east-2"
 }
 
