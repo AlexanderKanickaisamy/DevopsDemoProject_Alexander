@@ -40,7 +40,7 @@ resource "null_resource" "ansible-main" {
        ansible-playbook --key-file=${var.pvt_key_name} -i jenkins-ci.ini -u ec2-user ./ansible-code/playbook.yml -v 
      EOT
   }
-  depends_on = [aws_instance.backend]
+  depends_on = [aws_instance.backend][count.index]
 }
 
 
