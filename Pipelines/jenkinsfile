@@ -87,7 +87,4 @@ stage('Publish Build Info'){
          recipientProviders: [[$class: 'CulpritsRecipientProvider']]
 	 sh 'exit 0'
  }
-
-
- }
 }
