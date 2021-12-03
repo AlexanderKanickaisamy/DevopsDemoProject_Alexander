@@ -1,0 +1,30 @@
+---
+
+- name: "Install JCliff RPM if possible on {{ ansible_distribution}} using {{ jcliff_yum_baseurl }}"
+  block:
+    - name: "Add JCliff Yum Repository ({{ ansible_distribution}})"
+      yum_repository:
+        name: jcliff
+        description: Copr repo for jcliff owned by ansiblemiddleware
+        baseurl: "{{ jcliff_yumrepository.baseurl }}"
+        gpgcheck: "{{ jcliff_yumrepository.gpgcheck  | default(omit) }}"
+        gpgkey: "{{ jcliff_yumrepository.gpgkey | default(omit) }}"
+        enabled: "{{ jcliff_yumrepository.enabled }}"
+      when:
+        - jcliff_yumrepository.skip is defined
+        - not jcliff_yumrepository.skip
+
+    - block:
+      - name: "Test if package {{ jcliff_package_name }} is already installed"
+        command: rpm -q {{ jcliff_package_name }}
+        args:
+          warn: no
+        changed_when: false
+      rescue:
+      - name: "Ensure JCliff is installed"
+        package:
+          name: "{{ jcliff_package_name }}"
+          state: present
+  when:
+    - jcliff_yumrepository.enabled is defined
+    - jcliff_yumrepository.enabled
