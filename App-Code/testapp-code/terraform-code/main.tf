@@ -1,6 +1,6 @@
 resource "aws_instance" "backend" {
   count         = var.instance_count
-  ami           = lookup(var.ami,var.aws_region)
+  ami           = lookup(var.ami_id,var.aws_region)
   instance_type     = "t2.micro"
   key_name          = var.key_name
   vpc_security_group_ids = [var.sg_id]
