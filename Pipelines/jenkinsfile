@@ -71,6 +71,8 @@ stage('Publish Build Info'){
 
  stage('Terraform Deployment'){
      sh "cd terraform-code; terraform init ; terraform apply --auto-approve"
+     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh "exit 1"
  }
 
  stage('Send email') {
@@ -83,6 +85,7 @@ stage('Publish Build Info'){
          to: "${mailRecipients}",
          replyTo: "${mailRecipients}",
          recipientProviders: [[$class: 'CulpritsRecipientProvider']]
+	 sh 'exit 0'
  }
 
 
