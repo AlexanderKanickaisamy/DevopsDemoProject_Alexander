@@ -72,11 +72,8 @@ stage('Publish Build Info'){
  stage('Terraform Deployment'){
      sh "cd terraform-code; terraform init ; terraform apply --auto-approve"
  } 
-  emailext (
-      subject: subject,
-      body: details,
-      recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-    )
-   }
-  }
+    
+ }
+
+}
 
