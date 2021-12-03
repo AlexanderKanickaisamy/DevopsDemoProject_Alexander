@@ -1,0 +1,2 @@
+[applicationserver]
+13.233.184.10 ansible_ssh_pass=Welcome@1122 ansible_ssh_user=centos
