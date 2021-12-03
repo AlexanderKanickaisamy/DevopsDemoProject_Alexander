@@ -2,15 +2,15 @@
 
 - name: Download JBoss from jboss.org
   get_url: 
-   url: https://download.jboss.org/wildfly/10.0.0.Final/wildfly-10.0.0.Final.tar.gz
-   dest: /opt/wildfly-10.0.0.Final.tar.gz
+   url: https://github.com/wildfly/wildfly/releases/download/25.0.0.Final/wildfly-preview-25.0.0.Final.zip
+   dest: /opt/wildfly-preview-25.0.0.Final.zip
 
 - name: Extract archive
-  command: chdir=/usr/share /usr/bin/tar.gz -q /opt/wildfly-10.0.0.Final.tar.gz creates=/usr/share/jboss-as
+  command: chdir=/usr/share /usr/bin/zip -q /opt/wildfly-preview-25.0.0.Final.zip creates=/usr/share/jboss-as
 
   # Rename the dir to avoid encoding the version in the init script
 - name: Rename install directory
-  command: chdir=/usr/share /bin/mv wildfly-10.0.0.Final jboss-as creates=/usr/share/jboss-as
+  command: chdir=/usr/share /bin/mv wildfly-preview-25.0.0.Final jboss-as creates=/usr/share/jboss-as
 
 - name: Copying standalone.xml configuration file
   template: src=standalone.xml dest=/usr/share/jboss-as/standalone/configuration/
