@@ -1,5 +1,0 @@
----
-
-- name: "Install JCliff on {{ ansible_distribution}}"
-  win_chocolatey:
-    name: "{{ jcliff_package_name }}"

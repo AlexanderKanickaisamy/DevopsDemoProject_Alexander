@@ -1,7 +1,0 @@
----
-- hosts: applicationserver
-  become: true
-  become_user: root
-  roles:
-    - wildfly-install
-...

@@ -1,7 +1,0 @@
---- 
-
-- hosts: 'web:&prod'
-  name: WebServer Deployment
-  roles:
-  - firewall
-  - webserver

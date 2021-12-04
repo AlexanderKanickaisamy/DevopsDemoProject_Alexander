@@ -1,8 +1,0 @@
---- 
-
-- hosts: '10.0.0.4'
-  name: Tomcat Application & Apache Web Deployment
-  roles:
-  - firewall
-  - webserver
-  - tomcat

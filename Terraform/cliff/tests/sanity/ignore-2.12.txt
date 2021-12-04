@@ -1,2 +1,0 @@
-plugins/modules/jcliff.py validate-modules!skip
-plugins/modules/win_jcliff.ps1 validate-modules!skip
